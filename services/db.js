@@ -13,10 +13,16 @@ db.config = {
     password: 'action229',
     server: 'localhost', // You can use 'localhost\\instance' to connect to named instance
     database: 'ACTIONROAM',
-    port: 1433
+    port: 1433,
     //options: {
     //  encrypt: true // Use this if you're on Windows Azure
     //}
+    connectionTimeout: 300000,
+    requestTimeout: 300000,
+    pool: {
+        idleTimeoutMillis: 300000,
+        max: 100
+    }
 };
 
 /**
