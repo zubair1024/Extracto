@@ -129,6 +129,7 @@ etljob.calculateUtilization = function (dbObj, asset, events, etlDate, resolve) 
                             console.log(`Successfully updated record for ${asset.NAME}: ${asset.SYSID},${etlDate},${utilizedDuration},${used}`);
                             fulfilled(asset.NAME);
                         }
+                        console.timeEnd('ETLAssetUtilizationAnalysisJob');
                     });
                 } else {
                     dbObj.request.query(statement.insertAssetUtilization(asset.SYSID, etlDate, utilizedDuration, used), function (err, recordset) {
@@ -138,6 +139,7 @@ etljob.calculateUtilization = function (dbObj, asset, events, etlDate, resolve) 
                             console.log(`Successfully inserted record for ${asset.NAME}: ${asset.SYSID},${etlDate},${utilizedDuration},${used}`);
                             fulfilled(asset.NAME);
                         }
+                        console.timeEnd('ETLAssetUtilizationAnalysisJob');
                     });
                 }
             });

@@ -79,7 +79,7 @@ setTimeout(function () {
 }, timeToNextRun);
 
 //For testing
-ETLAssetUtilizationAnalysisJob.init('2015-11-02', '2015-11-03');
+ETLAssetUtilizationAnalysisJob.init('2015-11-01', '2015-11-03');
 
 
 module.exports = app;
