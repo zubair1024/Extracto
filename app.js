@@ -6,7 +6,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
 var routes = require('./routes/index');
-var users = require('./routes/users');
+var assets = require('./routes/assets');
 
 var util = require('./services/util');
 
@@ -25,7 +25,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
-app.use('/users', users);
+app.use('/assets', assets);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
@@ -79,7 +79,11 @@ setTimeout(function () {
 }, timeToNextRun);
 
 //For testing
-ETLAssetUtilizationAnalysisJob.init('2015-11-01', '2015-11-03');
+//ETLAssetUtilizationAnalysisJob.init('2015-11-1', '2015-11-2');
+//for (var i = 1; i < 30; i++) {
+//    console.log(`Running job for the timeline: 2015-11-${i} 2015-11-${i + 1}`);
+//    ETLAssetUtilizationAnalysisJob.init(`2015-11-${i}`, `2015-11-${i + 1}`);
+//}
 
 
 module.exports = app;
